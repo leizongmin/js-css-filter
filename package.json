@@ -1,0 +1,44 @@
+{
+  "name": "cssfilter",
+  "version": "0.0.0",
+  "description": "Sanitize untrusted CSS with a configuration specified by a Whitelist. 根据白名单过滤CSS",
+  "main": "index.js",
+  "scripts": {
+    "blanket": {
+      "pattern": "cssfilter/lib"
+    },
+    "test": "./node_modules/mocha/bin/mocha --require blanket -R html-cov > coverage.html -t 5000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/leizongmin/js-css-filter.git"
+  },
+  "keywords": [
+    "sanitization",
+    "xss",
+    "sanitize",
+    "sanitisation",
+    "input",
+    "security",
+    "escape",
+    "encode",
+    "filter",
+    "validator",
+    "html",
+    "css",
+    "injection",
+    "whitelist"
+  ],
+  "author": "Zongmin Lei <leizongmin@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/leizongmin/js-css-filter/issues"
+  },
+  "homepage": "https://github.com/leizongmin/js-css-filter",
+  "devDependencies": {
+    "blanket": "^1.1.6",
+    "browserify": "^10.0.0",
+    "mocha": "^2.2.4",
+    "uglify-js": "^2.4.20"
+  }
+}
