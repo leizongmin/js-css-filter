@@ -2,14 +2,14 @@
 Sanitize untrusted CSS with a configuration specified by a Whitelist. 根据白名单过滤CSS
 
 
-## Install
+## 安装
 
 ```bash
 $ npm install cssfilter --save
 ```
 
 
-## Usage
+## 使用方法
 
 ```javascript
 var cssfilter = require('cssfilter');
@@ -17,11 +17,31 @@ var css = cssfilter('position:fixed; width:100px; height:100px; background:#aaa;
 console.log(css);
 ```
 
-other way:
+或者：
 
 ```javascript
 options = {
-  whiteList: ['width', 'height'];
+  // 白名单，可选
+  whiteList: {
+    a: true,                 // true表示允许
+    b: /^fixed|relative$/,   // 正则test()返回true表示允许
+    c: function (value) {
+      // 返回true表示允许
+    },
+    d: false                 // 除以上三张外，所有值均表示不允许
+  },
+  // 当匹配到一个在白名单中的属性时
+  onAttr: function (name, value, options) {
+    // name为属性名
+    // value为属性值
+    // 返回字符串表示覆盖此段CSS
+    // 不返回任何值表示使用默认生成方法，即 name:value
+  },
+  // 当匹配到一个不在白名单中的属性时
+  onIgnoreAttr: function (name, value, options) {
+    // name为属性名
+    // value为属性值
+  }
 };
 mycss = new cssfilter.FilterCSS(options);
 // then apply mycss.process()
