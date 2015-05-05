@@ -30,7 +30,7 @@ options = {
     c: function (value) {
       // 返回true表示允许
     },
-    d: false                 // 除以上三张外，所有值均表示不允许
+    d: false                 // 除以上三个以外，所有值均表示不允许
   },
   // 当匹配到一个在白名单中的属性时
   onAttr: function (name, value, options) {
@@ -49,7 +49,8 @@ options = {
 };
 mycss = new cssfilter.FilterCSS(options);
 // then apply mycss.process()
-html = mycss.process('position:fixed; width:100px; height:100px; background:#aaa;');
+css = mycss.process('position:fixed; width:100px; height:100px; background:#aaa;');
+console.log(css);
 ```
 
 
