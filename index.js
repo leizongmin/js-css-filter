@@ -5,14 +5,14 @@
  */
 
 var DEFAULT = require('./lib/default');
-var FilterCSS = require('./css');
+var FilterCSS = require('./lib/css');
 
 
 /**
  * XSS过滤
  *
  * @param {String} css 要过滤的CSS代码
- * @param {Object} options 选项：whiteList, onAttr
+ * @param {Object} options 选项：whiteList, onAttr, onIgnoreAttr
  * @return {String}
  */
 function filterCSS (html, options) {
@@ -25,7 +25,6 @@ function filterCSS (html, options) {
 exports = module.exports = filterCSS;
 exports.FilterCSS = FilterCSS;
 for (var i in DEFAULT) exports[i] = DEFAULT[i];
-for (var i in parser) exports[i] = parser[i];
 
 
 
