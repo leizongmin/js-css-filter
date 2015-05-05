@@ -23,6 +23,16 @@ describe('parseStyle', function () {
     }).should.equal('width:100px; height:200px; font-size:400;');
   });
 
+  it('stript comments', function () {
+
+    parseStyle('/*width: 100px;\nhe*/ight:200px; /**/ y:url(a/*b*/); /*font-size:400; */font:none;', function (sourcePosition, position, name, value, source) {
+      if (name === 'font') {
+        value.should.equal('none');
+      }
+      return name + ':' + value;
+    }).should.equal('ight:200px; font:none;');
+  });
+
   it('ending without `;`', function () {
     parseStyle('width: 100px;height:200px;    font-size:400', function (sourcePosition, position, name, value, source) {
       if (name === 'width') {
