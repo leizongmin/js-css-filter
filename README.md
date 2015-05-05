@@ -15,6 +15,7 @@ $ npm install cssfilter --save
 var cssfilter = require('cssfilter');
 var css = cssfilter('position:fixed; width:100px; height:100px; background:#aaa;');
 console.log(css);
+// 输出：width:100px; height:100px; background:#aaa;
 ```
 
 或者：
