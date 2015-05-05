@@ -43,4 +43,17 @@ describe('parseStyle', function () {
 
   });
 
+  it('onIgnoreAttr() returns new sources', function () {
+
+    filterCSS('position: fixed; width:100px; height:  200px', {
+      onIgnoreAttr: function (name, value, options) {
+        options.isWhite.should.equal(false);
+        if (name === 'position') value.should.equal('fixed');
+        else throw new Error('bad attr name `' + name + '`');
+        return 'x-' + name + ':' + value;
+      }
+    }).should.equal('x-position:fixed; width:100px; height:200px;');
+
+  });
+
 });

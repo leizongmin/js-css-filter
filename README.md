@@ -16,6 +16,7 @@ var cssfilter = require('cssfilter');
 var css = cssfilter('position:fixed; width:100px; height:100px; background:#aaa;');
 console.log(css);
 // 输出：width:100px; height:100px; background:#aaa;
+// 因为position不在白名单允许范围
 ```
 
 或者：
@@ -42,6 +43,8 @@ options = {
   onIgnoreAttr: function (name, value, options) {
     // name为属性名
     // value为属性值
+    // 返回字符串表示覆盖此段CSS
+    // 不返回任何值表示使用默认生成方法，即将此段CSS去掉
   }
 };
 mycss = new cssfilter.FilterCSS(options);
