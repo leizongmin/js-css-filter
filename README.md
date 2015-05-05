@@ -13,7 +13,7 @@ $ npm install cssfilter --save
 
 ```javascript
 var cssfilter = require('cssfilter');
-var css = cssfilter('position:fixed; width:100px; height:100px; background:#aaa;');
+var css = cssfilter('position:fixed; /* this is comments */ width:100px; height:100px; background:#aaa;');
 console.log(css);
 // 输出：width:100px; height:100px; background:#aaa;
 // 因为position不在白名单允许范围
