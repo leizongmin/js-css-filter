@@ -7,7 +7,7 @@
     "blanket": {
       "pattern": "cssfilter/lib"
     },
-    "test": "./node_modules/mocha/bin/mocha --require blanket -R html-cov > coverage.html -t 5000"
+    "test": "mocha --require blanket -R html-cov > coverage.html -t 5000 && mocha -t 5000 && testling -x open"
   },
   "repository": {
     "type": "git",
@@ -40,6 +40,20 @@
     "browserify": "^10.0.0",
     "mocha": "^2.2.4",
     "should": "^6.0.1",
+    "testling": "^1.7.1",
     "uglify-js": "^2.4.20"
+  },
+  "testling": {
+    "preprocess": "./build",
+    "harness": "mocha-bdd",
+    "files": "test/*.js",
+    "browsers": [
+      "ie/6..latest",
+      "firefox/latest",
+      "chrome/latest",
+      "safari/5..latest",
+      "opera/11",
+      "opera/next"
+    ]
   }
 }
