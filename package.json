@@ -37,7 +37,7 @@
   "homepage": "https://github.com/leizongmin/js-css-filter",
   "devDependencies": {
     "blanket": "^1.1.6",
-    "browserify": "^13.0.1",
+    "browserify": "^13.1.0",
     "mocha": "^2.2.4",
     "should": "^9.0.2",
     "testling": "^1.7.1",
