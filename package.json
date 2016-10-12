@@ -3,8 +3,13 @@
   "version": "0.0.7",
   "description": "Sanitize untrusted CSS with a configuration specified by a Whitelist. 根据白名单过滤CSS",
   "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
   "scripts": {
-    "test": "istanbul cover _mocha --report lcovonly -- -t 5000 -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+    "test": "istanbul cover _mocha --report lcovonly -- -t 5000 -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
+    "build": "./build",
+    "prepublish": "npm run test && npm run build"
   },
   "repository": {
     "type": "git",
