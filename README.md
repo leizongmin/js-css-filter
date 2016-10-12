@@ -1,7 +1,6 @@
 [![NPM version](https://badge.fury.io/js/cssfilter.png)](http://badge.fury.io/js/xss)
 [![Build Status](https://secure.travis-ci.org/leizongmin/js-css-filter.png?branch=master)](http://travis-ci.org/leizongmin/js-css-filter)
 [![Dependencies Status](https://david-dm.org/leizongmin/js-css-filter.png)](https://david-dm.org/leizongmin/js-css-filter)
-[![testling badge](https://ci.testling.com/leizongmin/js-css-filter.png)](https://ci.testling.com/leizongmin/js-css-filter)
 
 # cssfilter
 Sanitize untrusted CSS with a configuration specified by a Whitelist. 根据白名单过滤CSS
@@ -64,7 +63,7 @@ console.log(css);
 ```
 The MIT License (MIT)
 
-Copyright (c) 2015 Zongmin Lei <leizongmin@gmail.com>
+Copyright (c) 2015-2016 Zongmin Lei(雷宗民) <leizongmin@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
