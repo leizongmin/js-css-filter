@@ -1,6 +1,7 @@
 [![NPM version](https://badge.fury.io/js/cssfilter.png)](http://badge.fury.io/js/xss)
 [![Build Status](https://secure.travis-ci.org/leizongmin/js-css-filter.png?branch=master)](http://travis-ci.org/leizongmin/js-css-filter)
 [![Dependencies Status](https://david-dm.org/leizongmin/js-css-filter.png)](https://david-dm.org/leizongmin/js-css-filter)
+[![coveralls-image](https://img.shields.io/coveralls/leizongmin/js-css-filter.svg?style=flat-square)](https://coveralls.io/r/leizongmin/js-css-filter?branch=master)
 
 # cssfilter
 Sanitize untrusted CSS with a configuration specified by a Whitelist. 根据白名单过滤CSS
