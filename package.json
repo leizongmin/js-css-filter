@@ -44,6 +44,6 @@
     "istanbul": "^0.4.5",
     "mocha": "^3.1.2",
     "should": "^11.1.1",
-    "uglify-js": "^2.4.20"
+    "uglify-js": "^2.7.5"
   }
 }
