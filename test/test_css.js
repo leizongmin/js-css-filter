@@ -56,4 +56,16 @@ describe('parseStyle', function () {
 
   });
 
+  it('no options mutated', function () {
+      var options = {};
+
+      var ret = filterCSS('test', options);
+      console.log(options);
+      should.deepEqual(options, {});
+
+      var ret2 = new filterCSS.FilterCSS(options);
+      console.log(options);
+      should.deepEqual(options, {});
+  });
+
 });
