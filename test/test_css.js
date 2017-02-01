@@ -68,4 +68,26 @@ describe('parseStyle', function () {
       should.deepEqual(options, {});
   });
 
+  it('filter url(javascript:xxxx)', function () {
+
+    filterCSS('background: url(javascript:alert(/xss/)); height: 400px;')
+      .should.equal('height:400px;');
+
+    filterCSS('background: url( javascript : alert(/xss/)); height: 400px;')
+      .should.equal('height:400px;');
+
+    filterCSS('background: url ( javascript :alert(/xss/)); height: 400px;')
+      .should.equal('height:400px;');
+
+    filterCSS('background: url (" javascript :alert(/xss/)"); height: 400px;')
+      .should.equal('height:400px;');
+
+    filterCSS('background: url ( javascript : "alert(/xss/) "); height: 400px;')
+      .should.equal('height:400px;');
+
+    filterCSS('background: url ( java script : alert(/xss/)); height: 400px;')
+      .should.equal('background:url ( java script : alert(/xss/)); height:400px;');
+
+  });
+
 });
