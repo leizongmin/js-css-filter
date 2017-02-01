@@ -39,14 +39,16 @@ function shallowCopyObject (obj) {
  *
  * @param {Object} options
  *   - {Object} whiteList
- *   - {Object} onAttr
- *   - {Object} onIgnoreAttr
+ *   - {Function} onAttr
+ *   - {Function} onIgnoreAttr
+ *   - {Function} safeAttrValue
  */
 function FilterCSS (options) {
   options = shallowCopyObject(options || {});
   options.whiteList = options.whiteList || DEFAULT.whiteList;
   options.onAttr = options.onAttr || DEFAULT.onAttr;
   options.onIgnoreAttr = options.onIgnoreAttr || DEFAULT.onIgnoreAttr;
+  options.safeAttrValue = options.safeAttrValue || DEFAULT.safeAttrValue;
   this.options = options;
 }
 
@@ -61,6 +63,7 @@ FilterCSS.prototype.process = function (css) {
   var whiteList = options.whiteList;
   var onAttr = options.onAttr;
   var onIgnoreAttr = options.onIgnoreAttr;
+  var safeAttrValue = options.safeAttrValue;
 
   var retCSS = parseStyle(css, function (sourcePosition, position, name, value, source) {
 
@@ -70,6 +73,10 @@ FilterCSS.prototype.process = function (css) {
     else if (typeof check === 'function') isWhite = check(value);
     else if (check instanceof RegExp) isWhite = check.test(value);
     if (isWhite !== true) isWhite = false;
+
+    // 如果过滤后 value 为空则直接忽略
+    value = safeAttrValue(name, value);
+    if (!value) return;
 
     var opts = {
       position: position,
@@ -482,11 +489,26 @@ function onIgnoreAttr (name, value, options) {
   // do nothing
 }
 
+var REGEXP_URL_JAVASCRIPT = /javascript\s*\:/img;
+
+/**
+ * 过滤属性值
+ *
+ * @param {String} name
+ * @param {String} value
+ * @return {String}
+ */
+function safeAttrValue(name, value) {
+  if (REGEXP_URL_JAVASCRIPT.test(value)) return '';
+  return value;
+}
+
 
 exports.whiteList = getDefaultWhiteList();
 exports.getDefaultWhiteList = getDefaultWhiteList;
 exports.onAttr = onAttr;
 exports.onIgnoreAttr = onIgnoreAttr;
+exports.safeAttrValue = safeAttrValue;
 
 },{}],3:[function(require,module,exports){
 /**
