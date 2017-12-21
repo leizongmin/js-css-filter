@@ -4,6 +4,8 @@
 [![coveralls-image](https://img.shields.io/coveralls/leizongmin/js-css-filter.svg?style=flat-square)](https://coveralls.io/r/leizongmin/js-css-filter?branch=master)
 
 # cssfilter
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/leizongmin/js-css-filter.svg)](https://greenkeeper.io/)
 Sanitize untrusted CSS with a configuration specified by a Whitelist. 根据白名单过滤CSS
 
 
