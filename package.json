@@ -1,6 +1,6 @@
 {
   "name": "cssfilter",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Sanitize untrusted CSS with a configuration specified by a Whitelist. 根据白名单过滤CSS",
   "main": "lib/index.js",
   "files": [
