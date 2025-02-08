@@ -27,9 +27,11 @@ function isNull (obj) {
  * @return {Object}
  */
 function shallowCopyObject (obj) {
-  var ret = {};
+  var ret = Object.create(null);
   for (var i in obj) {
-    ret[i] = obj[i];
+    if (obj.hasOwnProperty(i)) {
+      ret[i] = obj[i];
+    }
   }
   return ret;
 }
